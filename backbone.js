@@ -87,6 +87,45 @@
   //     object.on('expand', function(){ alert('expanded'); });
   //     object.trigger('expand');
   //
+
+  // Reading the Events implementation
+  // ---------------------------------
+  //
+  // Event subscriptions come in two forms. `obj.on(name, callback, context)`
+  // stores a handler on the object that emits the event. In contrast,
+  // `listener.listenTo(obj, name, callback)` also records which object is doing
+  // the listening, so that `listener.stopListening()` can remove its bindings
+  // without the listener retaining its own list of callbacks.
+  //
+  // <img src="images/events-listening.svg" alt="The listener and listenee share
+  // a Listening record, which is referenced by the listenee's event handler."
+  // style="max-width: 100%; height: auto;">
+  //
+  // Backbone calls the object that invokes `listenTo` the **listener** and the
+  // object it observes the **listenee**. The private fields in the diagram have
+  // distinct jobs:
+  //
+  // * `_events` maps each event name to the handlers registered on that object.
+  // * `_listeningTo` belongs to the listener and maps each listenee's
+  //   `_listenId` to a `Listening` record.
+  // * `_listeners` belongs to a Backbone.Events listenee and maps each
+  //   listener's `_listenId` to the same `Listening` record.
+  //
+  // A `Listening` record represents one listener-listenee pair, not one event.
+  // Each handler created through `listenTo` points back to that record. The
+  // record counts active handlers and removes both cross-references when the
+  // last one is unbound. If the listenee implements another events API instead
+  // of Backbone.Events, the record tracks callbacks itself in interoperability
+  // mode so that `stopListening` retains the same public behavior.
+  //
+  // Most public methods below share `eventsApi`. It normalizes an event map or
+  // a whitespace-separated list of names, then invokes a small reducer once per
+  // individual event name. The reducer receives `(events, name, callback,
+  // options)` and returns the next `events` accumulator: `onApi` adds handlers,
+  // `offApi` removes them, `onceMap` creates one-shot wrappers, and `triggerApi`
+  // dispatches them. Keeping normalization separate lets those reducers focus
+  // on a single event at a time.
+  //
   var Events = Backbone.Events = {};
 
   // Regular expression used to split event strings.

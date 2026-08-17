@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="590" viewBox="0 0 700 590" role="img" aria-labelledby="title description">
+  <title id="title">Backbone.Events listener and listenee bookkeeping</title>
+  <desc id="description">A listener and listenee reference the same Listening record. Event handlers on the listenee also reference that record, allowing stopListening to remove handlers and clean up both objects.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5c8bee"/>
+    </marker>
+    <marker id="event-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#b47b19"/>
+    </marker>
+    <style>
+      .box { fill: #f7f9fc; stroke: #5c8bee; stroke-width: 2; }
+      .record { fill: #eef4ff; stroke: #315fa8; stroke-width: 2; }
+      .handler { fill: #fff8e8; stroke: #b47b19; stroke-width: 2; }
+      .title { fill: #112233; font: 700 21px Arial, Helvetica, sans-serif; }
+      .label { fill: #30404f; font: 16px Arial, Helvetica, sans-serif; }
+      .code { fill: #112233; font: 15px Menlo, Consolas, monospace; }
+      .note { fill: #526575; font: 14px Arial, Helvetica, sans-serif; }
+      .link { fill: none; stroke: #5c8bee; stroke-width: 2; marker-end: url(#arrow); }
+      .event-link { fill: none; stroke: #b47b19; stroke-width: 2; marker-end: url(#event-arrow); }
+    </style>
+  </defs>
+
+  <rect class="box" x="30" y="35" width="275" height="145" rx="10"/>
+  <text class="title" x="50" y="68">Listener</text>
+  <text class="note" x="50" y="93">calls listenTo / stopListening</text>
+  <text class="code" x="50" y="125">_listeningTo[</text>
+  <text class="code" x="68" y="150">listenee._listenId]</text>
+
+  <rect class="box" x="395" y="35" width="275" height="190" rx="10"/>
+  <text class="title" x="415" y="68">Listenee</text>
+  <text class="note" x="415" y="93">emits the event</text>
+  <text class="code" x="415" y="125">_listeners[</text>
+  <text class="code" x="433" y="150">listener._listenId]</text>
+  <text class="code" x="415" y="185">_events[name]</text>
+  <text class="note" x="552" y="185">handlers</text>
+
+  <path class="link" d="M305 104 C345 104, 350 265, 350 285"/>
+  <path class="link" d="M395 126 C365 126, 365 265, 365 285"/>
+
+  <rect class="record" x="190" y="285" width="320" height="150" rx="10"/>
+  <text class="title" x="215" y="320">Listening record</text>
+  <text class="code" x="215" y="355">listener</text>
+  <text class="code" x="365" y="355">obj</text>
+  <text class="code" x="215" y="387">count</text>
+  <text class="code" x="365" y="387">interop</text>
+  <text class="note" x="215" y="417">one shared record per object pair</text>
+
+  <rect class="handler" x="170" y="485" width="360" height="80" rx="10"/>
+  <text class="title" x="195" y="518">Event handler</text>
+  <text class="code" x="195" y="548">callback · context · ctx · listening</text>
+
+  <path class="event-link" d="M530 225 C530 455, 485 468, 470 485"/>
+  <path class="link" d="M350 485 L350 435"/>
+</svg>

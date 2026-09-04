@@ -88,8 +88,7 @@
   //     object.trigger('expand');
   //
 
-  // Reading the Events implementation
-  // ---------------------------------
+  // ### Reading the Events implementation
   //
   // Event subscriptions come in two forms. `obj.on(name, callback, context)`
   // stores a handler on the object that emits the event. In contrast,
@@ -97,8 +96,9 @@
   // the listening, so that `listener.stopListening()` can remove its bindings
   // without the listener retaining its own list of callbacks.
   //
-  // <img src="images/events-listening.svg" alt="The listener and listenee share
-  // a Listening record, which is referenced by the listenee's event handler."
+  // <img src="images/events-listening.svg" alt="The listener and the listenee
+  // each reference a shared Listening record, which references both of them.
+  // The listenee's event handlers also point to that record."
   // style="max-width: 100%; height: auto;">
   //
   // Backbone calls the object that invokes `listenTo` the **listener** and the
@@ -112,11 +112,13 @@
   //   listener's `_listenId` to the same `Listening` record.
   //
   // A `Listening` record represents one listener-listenee pair, not one event.
-  // Each handler created through `listenTo` points back to that record. The
-  // record counts active handlers and removes both cross-references when the
-  // last one is unbound. If the listenee implements another events API instead
-  // of Backbone.Events, the record tracks callbacks itself in interoperability
-  // mode so that `stopListening` retains the same public behavior.
+  // It holds `listener` and `obj` references back to the two objects, so the
+  // pair and the record all point at each other. Each handler created through
+  // `listenTo` points back to that record. The record counts active handlers
+  // and removes both cross-references when the last one is unbound. If the
+  // listenee implements another events API instead of Backbone.Events, the
+  // record tracks callbacks itself in interoperability mode so that
+  // `stopListening` retains the same public behavior.
   //
   // Most public methods below share `eventsApi`. It normalizes an event map or
   // a whitespace-separated list of names, then invokes a small reducer once per

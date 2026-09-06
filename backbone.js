@@ -111,6 +111,11 @@
   // * `_listeners` belongs to a Backbone.Events listenee and maps each
   //   listener's `_listenId` to the same `Listening` record.
   //
+  // Each entry in `_events[name]` is a handler object holding `callback`,
+  // `context`, `ctx`, and `listening`. `context` is the receiver the caller
+  // passed and is what `off` matches on; `ctx` is the receiver the callback is
+  // actually invoked with, defaulting to the object itself.
+  //
   // A `Listening` record represents one listener-listenee pair, not one event.
   // It holds `listener` and `obj` references back to the two objects, so the
   // pair and the record all point at each other. Each handler created through

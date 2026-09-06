@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="830" viewBox="0 0 480 830" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="855" viewBox="0 0 480 855" role="img" aria-labelledby="title description">
   <title id="title">Backbone.Events listener and listenee bookkeeping</title>
-  <desc id="description">A listener and a listenee each hold a reference to one shared Listening record, and the record holds references back to both of them. Event handlers stored on the listenee also point to that record, so stopListening can unbind them and clear both cross-references.</desc>
+  <desc id="description">A listener and a listenee each hold a reference to one shared Listening record, and the record holds references back to both of them. Each handler stored on the listenee has callback, context, ctx and listening properties, and its listening property points to that record, so stopListening can unbind them and clear both cross-references.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#5c8bee"/>
@@ -53,10 +53,13 @@
 
   <path class="event-link" d="M200 627 L200 707"/>
 
-  <rect class="handler" x="20" y="707" width="385" height="88" rx="10"/>
-  <text class="title" x="38" y="744">Event handler</text>
-  <text class="code" x="38" y="776">callback · context · ctx · listening</text>
+  <rect class="handler" x="20" y="707" width="385" height="125" rx="10"/>
+  <text class="title" x="42" y="744">Event handler</text>
+  <text class="code" x="42" y="780">callback</text>
+  <text class="code" x="240" y="780">context</text>
+  <text class="code" x="42" y="812">ctx</text>
+  <text class="code" x="240" y="812">listening</text>
 
-  <path class="link" d="M405 751 H440 Q455 751 455 736 V320 Q455 305 440 305 H408"/>
+  <path class="link" d="M405 770 H440 Q455 770 455 755 V320 Q455 305 440 305 H408"/>
   <text class="note" x="448" y="690" text-anchor="end">listening</text>
 </svg>

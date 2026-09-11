@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="855" viewBox="0 0 480 855" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="880" viewBox="0 0 480 880" role="img" aria-labelledby="title description">
   <title id="title">Backbone.Events listener and listenee bookkeeping</title>
-  <desc id="description">A listener and a listenee each hold a reference to one shared Listening record, and the record holds references back to both of them. Each handler stored on the listenee has callback, context, ctx and listening properties, and its listening property points to that record, so stopListening can unbind them and clear both cross-references.</desc>
+  <desc id="description">A listener and a listenee each hold a reference to one shared Listening record, and the record holds references back to both of them. Each handler stored on the listenee has callback, context, ctx and listening properties, and its listening property points to that record, so that unbinding the last handler removes the record from both objects' maps.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#5c8bee"/>
     </marker>
-    <marker id="event-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#b47b19"/>
-    </marker>
     <style>
-      .box { fill: #f7f9fc; stroke: #5c8bee; stroke-width: 2; }
-      .record { fill: #eef4ff; stroke: #315fa8; stroke-width: 2; }
-      .handler { fill: #fff8e8; stroke: #b47b19; stroke-width: 2; }
-      .title { fill: #112233; font: 700 22px Arial, Helvetica, sans-serif; }
-      .code { fill: #112233; font: 16px Menlo, Consolas, monospace; }
-      .note { fill: #526575; font: 15px Arial, Helvetica, sans-serif; }
+      .box { fill: #ffffff; stroke: #5c8bee; stroke-width: 2; }
+      .record { fill: #bed1f8; stroke: #5c8bee; stroke-width: 2; }
+      .title { fill: #231f20; font: 700 22px Arial, Helvetica, sans-serif; }
+      .code { fill: #231f20; font: 16px Menlo, Consolas, monospace; }
+      .note { fill: #44525f; font: 15px Arial, Helvetica, sans-serif; }
       .link { fill: none; stroke: #5c8bee; stroke-width: 2; marker-end: url(#arrow); }
-      .event-link { fill: none; stroke: #b47b19; stroke-width: 2; marker-end: url(#event-arrow); }
     </style>
   </defs>
 
@@ -33,11 +28,11 @@
 
   <rect class="record" x="20" y="233" width="385" height="152" rx="10"/>
   <text class="title" x="42" y="270">Listening record</text>
-  <text class="code" x="42" y="306">listener</text>
-  <text class="code" x="240" y="306">obj</text>
-  <text class="code" x="42" y="338">count</text>
-  <text class="code" x="240" y="338">interop</text>
-  <text class="note" x="42" y="368">one shared record per object pair</text>
+  <text class="note" x="42" y="296">one shared record per object pair</text>
+  <text class="code" x="42" y="330">listener</text>
+  <text class="code" x="240" y="330">obj</text>
+  <text class="code" x="42" y="362">count</text>
+  <text class="code" x="240" y="362">interop</text>
 
   <path class="link" d="M120 385 L120 475"/>
   <text class="code" x="132" y="435">obj</text>
@@ -49,17 +44,18 @@
   <text class="note" x="42" y="540">emits the event</text>
   <text class="code" x="42" y="574">_listeners[listener._listenId]</text>
   <text class="code" x="42" y="608">_events[name]</text>
-  <text class="note" x="185" y="608">handlers</text>
 
-  <path class="event-link" d="M200 627 L200 707"/>
+  <path class="link" d="M200 627 L200 707"/>
+  <text class="code" x="212" y="672">_events</text>
 
-  <rect class="handler" x="20" y="707" width="385" height="125" rx="10"/>
+  <rect class="record" x="20" y="707" width="385" height="152" rx="10"/>
   <text class="title" x="42" y="744">Event handler</text>
-  <text class="code" x="42" y="780">callback</text>
-  <text class="code" x="240" y="780">context</text>
-  <text class="code" x="42" y="812">ctx</text>
-  <text class="code" x="240" y="812">listening</text>
+  <text class="note" x="42" y="770">one handler per callback per event</text>
+  <text class="code" x="42" y="804">callback</text>
+  <text class="code" x="240" y="804">context</text>
+  <text class="code" x="42" y="836">ctx</text>
+  <text class="code" x="240" y="836">listening</text>
 
-  <path class="link" d="M405 770 H440 Q455 770 455 755 V320 Q455 305 440 305 H408"/>
-  <text class="note" x="448" y="690" text-anchor="end">listening</text>
+  <path class="link" d="M405 783 H440 Q455 783 455 768 V320 Q455 305 440 305 H408"/>
+  <text class="code" x="448" y="672" text-anchor="end">listening</text>
 </svg>

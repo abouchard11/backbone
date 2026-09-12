@@ -143,6 +143,7 @@
   // object one `{name: wrapper}` entry at a time, which `once` then passes to
   // `on` as an event map.
   //
+  // ### Implementation
   var Events = Backbone.Events = {};
 
   // Regular expression used to split event strings.

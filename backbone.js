@@ -136,6 +136,13 @@
   // and `triggerApi` fires them. Handling the different forms in one place
   // lets each reducer deal with a single event at a time.
   //
+  // Because each call's return value becomes the next call's accumulator,
+  // `eventsApi` returns the last one. `onApi`, `offApi`, and `triggerApi`
+  // thread the object's `_events` through, so `on` and `off` assign the
+  // result straight back to `this._events`; `onceMap` instead fills an empty
+  // object one `{name: wrapper}` entry at a time, which `once` then passes to
+  // `on` as an event map.
+  //
   var Events = Backbone.Events = {};
 
   // Regular expression used to split event strings.

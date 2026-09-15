@@ -129,7 +129,7 @@
   // retains the same public behavior.
   //
   // Most public methods below share `eventsApi`. It accepts a single event
-  // name, a space-separated list of names, or an event map, and calls a small
+  // name, a space-separated list of names, or an event map, and calls a
   // reducer once for each event name. The reducer receives `(events, name,
   // callback, options)` and returns the next `events` accumulator: `onApi`
   // adds handlers, `offApi` removes them, `onceMap` creates one-shot wrappers,

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="450" height="800" viewBox="0 0 450 800" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="834" viewBox="0 0 450 834" role="img" aria-labelledby="title description">
   <title id="title">Backbone.Events listener and listenee bookkeeping</title>
   <desc id="description">A listener and a listenee each hold a reference to one shared Listening record, and the record holds references back to both of them. Each handler stored on the listenee has callback, context, ctx and listening properties, and its listening property points to that record, so that unbinding the last handler removes the record from both objects' maps.</desc>
   <defs>
-    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L5.5,3 z" fill="#5c8bee"/>
+    <marker id="arrow" markerWidth="2.5" markerHeight="2.1" refX="0" refY="1.05" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,2.1 L2.5,1.05 z" fill="#5c8bee"/>
     </marker>
     <style>
       @font-face { font-family: 'aller-light'; font-style: normal; font-weight: 400; src: url(data:font/woff;base64,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) format('woff'); }
@@ -18,44 +18,44 @@
     </style>
   </defs>
 
-  <rect class="box" x="14" y="16" width="386" height="110" rx="10"/>
+  <rect class="box" x="14" y="16" width="386" height="120" rx="10"/>
   <text class="title" x="36" y="54">Listener</text>
   <text class="note" x="36" y="78">calls listenTo / stopListening</text>
   <text class="code" x="36" y="110">_listeningTo[listenee._listenId]</text>
 
-  <rect class="record" x="14" y="206" width="386" height="140" rx="10"/>
-  <text class="title" x="36" y="244">Listening record</text>
-  <text class="note" x="36" y="268">one shared record per object pair</text>
-  <text class="code" x="36" y="302">listener</text>
-  <text class="code" x="230" y="302">obj</text>
-  <text class="code" x="36" y="330">count</text>
-  <text class="code" x="230" y="330">interop</text>
+  <rect class="record" x="14" y="216" width="386" height="150" rx="10"/>
+  <text class="title" x="36" y="254">Listening record</text>
+  <text class="note" x="36" y="278">one shared record per object pair</text>
+  <text class="code" x="36" y="312">listener</text>
+  <text class="code" x="230" y="312">obj</text>
+  <text class="code" x="36" y="340">count</text>
+  <text class="code" x="230" y="340">interop</text>
 
-  <rect class="box" x="14" y="426" width="386" height="146" rx="10"/>
-  <text class="title" x="36" y="464">Listenee</text>
-  <text class="note" x="36" y="488">calls on / off, emits the event</text>
-  <text class="code" x="36" y="520">_listeners[listener._listenId]</text>
-  <text class="code" x="36" y="550">_events[name]</text>
+  <rect class="box" x="14" y="446" width="386" height="150" rx="10"/>
+  <text class="title" x="36" y="484">Listenee</text>
+  <text class="note" x="36" y="508">calls on / off, emits the event</text>
+  <text class="code" x="36" y="540">_listeners[listener._listenId]</text>
+  <text class="code" x="36" y="570">_events[name]</text>
 
-  <rect class="record" x="14" y="644" width="386" height="140" rx="10"/>
-  <text class="title" x="36" y="682">Event handler</text>
-  <text class="note" x="36" y="706">one handler per callback per event</text>
-  <text class="code" x="36" y="740">callback</text>
-  <text class="code" x="230" y="740">context</text>
-  <text class="code" x="36" y="768">ctx</text>
-  <text class="code" x="230" y="768">listening</text>
+  <rect class="record" x="14" y="668" width="386" height="150" rx="10"/>
+  <text class="title" x="36" y="706">Event handler</text>
+  <text class="note" x="36" y="730">one handler per callback per event</text>
+  <text class="code" x="36" y="764">callback</text>
+  <text class="code" x="230" y="764">context</text>
+  <text class="code" x="36" y="792">ctx</text>
+  <text class="code" x="230" y="792">listening</text>
 
-  <path class="link" d="M110 126 L110 206"/>
-  <text class="code" x="124" y="171">_listeningTo</text>
-  <path class="link" d="M272 206 L272 126"/>
-  <text class="code" x="286" y="171">listener</text>
-  <path class="link" d="M110 346 L110 426"/>
-  <text class="code" x="124" y="391">obj</text>
-  <path class="link" d="M272 426 L272 346"/>
-  <text class="code" x="286" y="391">_listeners</text>
-  <path class="link" d="M190 572 L190 644"/>
-  <text class="code" x="204" y="613">_events</text>
+  <path class="link" d="M110 136 L110 203.5"/>
+  <text class="code" x="124" y="181">_listeningTo</text>
+  <path class="link" d="M272 216 L272 148.5"/>
+  <text class="code" x="286" y="181">listener</text>
+  <path class="link" d="M110 366 L110 433.5"/>
+  <text class="code" x="124" y="411">obj</text>
+  <path class="link" d="M272 446 L272 378.5"/>
+  <text class="code" x="286" y="411">_listeners</text>
+  <path class="link" d="M190 596 L190 655.5"/>
+  <text class="code" x="204" y="637">_events</text>
 
-  <path class="link" d="M400 712 H410 Q424 712 424 698 V304 Q424 290 410 290 H402"/>
-  <text class="code" x="414" y="613" text-anchor="end">listening</text>
+  <path class="link" d="M400 736 H414 Q428 736 428 722 V314 Q428 300 414 300"/>
+  <text class="code" x="414" y="637" text-anchor="end">listening</text>
 </svg>
